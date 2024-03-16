@@ -68,28 +68,77 @@ def delete_department():
 # You'll implement the employee functions in the lab
 
 def list_employees():
+    employees = Employee.get.all()
+    for employee in employees:
+     print(employee)
+ 
     pass
 
 
 def find_employee_by_name():
+ name = input("Enter employee's name: ")
+ if employee :=  Employee.find_employee_by_name(name):
+    print(employee) if employee else print(
+        f"Employee {name} not found."
+    )
     pass
 
 
 def find_employee_by_id():
+    id_ = input("Enter the employees id: ")
+    employee = Employee.find_by_id(id_)
+    print(employee) if employee else print(f"Employee with {id_} not found.")
+
     pass
 
 
 def create_employee():
+    name = input("Enter employee's name: ")
+    jobtitle = input("Enter employee's job title: ")
+    department = input("Enter employee's department id: ")
+    try:
+        employee = Employee.create(name, jobtitle, department)
+        print(f'succees fully created {name}, {jobtitle}, {department}')
+    except Exception as exc:
+       print("Invalid entry", exc)
+
     pass
 
 
 def update_employee():
-    pass
+    id_=input('Please enter the employee name you want to update: ')
+    if employee := Employee.find_by_name(employee):
+
+     try:
+         
+         name = input("Enter empoyees new: ")
+         employee.name = name
+         jobtitle = input("Enter employees new job title: ")
+         employee.jobtitle = jobtitle
+         department = input("Enter employees new deaprtment id: ")
+         employee.department = department
+
+         employee.update()
+         print(f'succecfully {name} {jobtitle} {department} updated')
+     except  Exception as exc:
+         print("Error updating employee", exc)
+
+         
+         pass
 
 
 def delete_employee():
+ id_ = input("Enter empoyee's id: ")
+ if employee := Employee.find_by_id(id_):
+     employee.delete()
+     print(f"{id} has been deleted.")
+ else:
+    print(f'empoyee {id} not found')
     pass
 
 
 def list_department_employees():
+    list_department_employees = list_department_employees.get.all()
+    for list_department_empoyees in list_department_employees:
+        print(list_department_employees)
     pass
